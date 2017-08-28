@@ -1,0 +1,52 @@
+<h1>The Weather for today</h1>
+
+<div *ngIf="testForm" class="w3-sidebar w3-light-grey w3-bar-block">
+  <br>
+  <form [formGroup]="formulaire" (ngSubmit)="WhenSubmitted()">
+    <input type="text" formControlName="formCity" name="city" placeholder="cityName">
+    <br><br>
+    <select formControlName="formUnit" name="unit">
+      <option *ngFor="let unit of units" [ngValue]="unit.name">{{unit.name}}</option>
+    </select>
+
+    <br><br>
+
+    <select formControlName="formLang" name="language">
+      <option *ngFor="let language of languages" [ngValue]="language.code">{{language.name}}</option>
+    </select>
+
+    <br><br>
+
+    <button name="butt">Submit</button>
+  </form>
+</div>
+
+
+
+
+
+<div *ngIf="testResult">
+  <br>
+  <h2> {{info.city}}</h2>
+
+<div align="middle">
+  <table border="0">
+    <tr>
+      <td><img src="https://openweathermap.org/img/w/{{info.weatherImage}}.png" width="100"></td>
+    </tr>
+    <tr>
+      <td>{{info.description}}</td>
+    <tr>
+    <tr>
+      <td>temp : {{info.temp}}</td>
+      <td>humidity : {{info.humidity}}%</td>
+      <td>wind speed : {{info.windSpeed}}</td>
+      <td>clouds : {{info.cloud}}%</td>
+    </tr>
+    <tr>
+      <td>date : {{info.dateTime}}</td>
+    </tr>
+  </table>
+  <button name="butt2" (click)="backToForm()">New request</button>
+</div>
+</div>
