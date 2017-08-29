@@ -72,7 +72,9 @@ backToForm(): void{   //this function help us go back to the form from the resul
   this.testForm = true;
   this.testResult = false;
 
-  console.log(this.testForm);
+  for(let i=0; i<40; i+=1){
+	this.infos.splice(i);
+  }
 }
 
 }
